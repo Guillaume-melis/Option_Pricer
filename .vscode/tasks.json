@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build C++ Project",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++17",
+                "-Wall",
+                "main.cpp",
+                "src/Greeks.cpp",
+                "src/MarketData.cpp",
+                "src/Option.cpp",
+                "src/Pricer.cpp", 
+                "src/Utils.cpp",
+                "-I", "include",
+                "-o", "bin/Option_Pricer"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}
