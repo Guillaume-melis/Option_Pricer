@@ -8,7 +8,7 @@
 #include <random>
 #include <array>
 
-Pricer::Pricer(Option opt, MarketData mkt)
+/*Pricer::Pricer(Option opt, MarketData mkt)
 {
 
     MC_price_ = compute_MonteCarlo_price(opt,mkt,1000000);
@@ -92,4 +92,4 @@ double Pricer::compute_BlackScholes_price(Option opt, MarketData mkt)
     }
 
 double Pricer::get_MC_price() {return MC_price_;}
-double Pricer::get_BS_price() {return BS_price_;}
+double Pricer::get_BS_price() {return BS_price_;}*/
