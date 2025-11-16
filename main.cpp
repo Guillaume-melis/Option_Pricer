@@ -12,6 +12,7 @@
 #include "PayoffCall.hpp"
 #include "PayoffPut.hpp"
 #include "PayoffBin.hpp"
+#include "Greeks.hpp"
 
 int main()
 {
@@ -47,19 +48,31 @@ int main()
     std::cout << "Binary call MC price      : " << pricer_binary.get_price() << std::endl;
     std::cout << "Barrier call MC price     : " << pricer_barrier.get_price() << std::endl;
 
-    // --- Partie Greeks (commentée pour l'instant) ---
-    /*
-    Greeks sensi_call(call_vanille, market);
-    Greeks sensi_put(put_vanille, market);
+    // --- Calcul des Greeks ---
+    Greeks<EuropeanOption> sensi_call(call_vanille, market);
+    Greeks<EuropeanOption> sensi_put(put_vanille, market);
+    Greeks<AsianOption>    sensi_asian(asian_call, market);
 
     std::cout << "Call vanille Greeks - Delta: " << sensi_call.get_Delta()
-              << ", Gamma: " << sensi_call.get_Gamma()
-              << ", Vega: " << sensi_call.get_Vega() << std::endl;
+            << ", Gamma: " << sensi_call.get_Gamma()
+            << ", Vega: " << sensi_call.get_Vega()
+            << ", Rho: " << sensi_call.get_Rho()
+            << ", Theta: " << sensi_call.get_Theta()
+            << std::endl;
 
     std::cout << "Put vanille Greeks - Delta: " << sensi_put.get_Delta()
-              << ", Gamma: " << sensi_put.get_Gamma()
-              << ", Vega: " << sensi_put.get_Vega() << std::endl;
-    */
+            << ", Gamma: " << sensi_put.get_Gamma()
+            << ", Vega: " << sensi_put.get_Vega()
+            << ", Rho: " << sensi_put.get_Rho()
+            << ", Theta: " << sensi_put.get_Theta()
+            << std::endl;
+
+    std::cout << "Asian call Greeks - Delta: " << sensi_asian.get_Delta()
+            << ", Gamma: " << sensi_asian.get_Gamma()
+            << ", Vega: " << sensi_asian.get_Vega()
+            << ", Rho: " << sensi_asian.get_Rho()
+            << ", Theta: " << sensi_asian.get_Theta()
+            << std::endl;
 
     return 0;
 }

@@ -26,6 +26,7 @@ class Option
     double get_Maturity() const {return T_;}
     double get_Strike() const {return K_;}
     OptionType get_OptionType() const {return type_;}
+    std::shared_ptr<Payoff> get_Payoff() const {return payoff_;}
 
     virtual double payoff(double ST) const
     {
