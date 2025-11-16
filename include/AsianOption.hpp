@@ -10,7 +10,7 @@ class AsianOption : public Option
     AverageType average_type_;
 
     public : 
-    AsianOption(double K, double T, OptionType type, std::shared_ptr<Payoff> pyf, AverageType average);
+    AsianOption(double K, double T, OptionType type, std::shared_ptr<Payoff> pyf, AverageType average=AverageType::Geometric);
     double simulate_payoff(double S0, double r, double sigma, int n_steps=252) const override;
 };  
 
